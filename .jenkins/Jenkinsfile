@@ -22,19 +22,34 @@ pipeline {
 
   stages {
     stage('Checkout') {
-      steps {
-        checkout scm
-        echo "Branch: ${env.BRANCH_NAME ?: 'N/A'} | Build: #${env.BUILD_NUMBER}"
-      }
+    	agent {
+			node {
+				label 'localJenkins'
+			}
+		}
+		steps {
+			checkout scm
+			echo "Branch: ${env.BRANCH_NAME ?: 'N/A'} | Build: #${env.BUILD_NUMBER}"
+		}
     }
 
     stage('Prepare') {
-      steps {
-        sh 'chmod +x gradlew'
-      }
+		agent {
+			node {
+				label 'localJenkins'
+			}
+		}
+		steps {
+			sh 'chmod +x gradlew'
+		}
     }
 
     stage('Build') {
+		agent {
+			node {
+				label 'localJenkins'
+			}
+		}
       steps {
         // If you need secrets (e.g., to run integration tests), configure credentials in Jenkins
         // and uncomment/adapt the block below with your credentials IDs.
@@ -56,6 +71,11 @@ pipeline {
     }
 
     stage('Archive Artifacts') {
+		agent {
+			node {
+				label 'localJenkins'
+			}
+		}
       when {
         anyOf { branch 'main'; branch 'master' }
       }
