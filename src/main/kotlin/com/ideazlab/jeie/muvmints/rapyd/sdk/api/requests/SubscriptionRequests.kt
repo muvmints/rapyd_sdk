@@ -46,3 +46,33 @@ data class CreateSubscriptionByHostedPageRequest(
     val completePaymentUrl: String? = null,
     val metadata: Map<String, Any?>? = null
 )
+
+// ---- Subscription Items ----
+
+@Serdeable
+data class CreateSubscriptionItemRequest(
+    val plan: String,
+    val subscription: String,
+    val metadata: Map<String, Any?>? = null,
+    val prorate: Boolean? = null,
+    @param:JsonProperty("proration_date")
+    val prorationDate: Long? = null,
+    val quantity: Int? = null
+)
+
+@Serdeable
+data class UpdateSubscriptionItemRequest(
+    val metadata: Map<String, Any?>? = null,
+    val prorate: Boolean? = null,
+    @param:JsonProperty("proration_date")
+    val prorationDate: Long? = null,
+    val quantity: Int? = null
+)
+
+@Serdeable
+data class CreateSubscriptionItemUsageRecordRequest(
+    val action: String = "increment",
+    val metadata: Map<String, Any?>? = null,
+    val quantity: Int,
+    val timestamp: Long
+)
