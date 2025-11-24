@@ -9,11 +9,11 @@ pipeline {
     durabilityHint('PERFORMANCE_OPTIMIZED')
   }
 
-  // Make sure this matches a configured JDK tool name in Jenkins (Manage Jenkins > Tools)
-  tools {
-    // Adjust if your Jenkins tool is named differently, e.g., 'Temurin-17' or 'JDK17'
-
-  }
+  //// Make sure this matches a configured JDK tool name in Jenkins (Manage Jenkins > Tools)
+  //tools {
+  //  // Adjust if your Jenkins tool is named differently, e.g., 'Temurin-17' or 'JDK17'
+  //
+  //}
 
   environment {
     // Gradle tuning (Jenkins generally recommends --no-daemon)
