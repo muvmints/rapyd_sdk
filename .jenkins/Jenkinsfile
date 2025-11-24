@@ -12,7 +12,7 @@ pipeline {
   // Make sure this matches a configured JDK tool name in Jenkins (Manage Jenkins > Tools)
   tools {
     // Adjust if your Jenkins tool is named differently, e.g., 'Temurin-17' or 'JDK17'
-    jdk 'jdk-17'
+
   }
 
   environment {
