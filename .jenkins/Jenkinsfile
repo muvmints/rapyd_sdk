@@ -4,7 +4,7 @@ pipeline {
   // Global pipeline options
   options {
     timestamps()
-    ansiColor('xterm')
+    //ansiColor('xterm')
     buildDiscarder(logRotator(numToKeepStr: '20'))
     durabilityHint('PERFORMANCE_OPTIMIZED')
   }
