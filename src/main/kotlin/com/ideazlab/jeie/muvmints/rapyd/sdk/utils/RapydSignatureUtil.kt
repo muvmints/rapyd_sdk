@@ -1,7 +1,7 @@
 package com.ideazlab.jeie.muvmints.rapyd.sdk.utils
 
 import java.nio.charset.StandardCharsets
-import java.util.Base64
+import java.util.*
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
 import kotlin.random.Random
@@ -13,7 +13,7 @@ object RapydSignatureUtil {
 
     fun generateSalt(length: Int = 12): String =
         (1..length)
-            .map { SALT_CHARS[Random.Default.nextInt(SALT_CHARS.length)] }
+            .map { SALT_CHARS[Random.nextInt(SALT_CHARS.length)] }
             .joinToString("")
 
     fun currentTimestampSeconds(): Long =

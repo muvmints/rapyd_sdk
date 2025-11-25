@@ -4,7 +4,6 @@ import com.ideazlab.jeie.muvmints.rapyd.sdk.Response
 import com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.embedded.RapydCustomer
 import com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.embedded.RapydDiscount
 import com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.embedded.RapydStatus
-import com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.RapydDeletedItem
 
 @Response
 data class CustomerResponse(
