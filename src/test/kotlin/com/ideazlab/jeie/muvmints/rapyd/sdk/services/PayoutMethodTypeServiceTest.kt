@@ -13,7 +13,7 @@ class PayoutMethodTypeServiceTest {
     private val config = TestUtils.testConfig()
     private val objectMapper = TestUtils.objectMapper()
     private val client: PayoutMethodTypeClient = mock()
-    private val service = PayoutMethodTypeService(config, objectMapper, client)
+    private val service = PayoutMethodTypeService(config, client)
 
     @Test
     fun listPayoutMethodTypes_filtersAndSortsParams() {

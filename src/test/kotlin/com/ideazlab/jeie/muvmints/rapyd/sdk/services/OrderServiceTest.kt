@@ -42,7 +42,7 @@ class OrderServiceTest {
         assertEquals(stub, out)
 
         verify(client).listOrders(
-            params = argThat { this != null && this.toList() == expectedOrdered.toList() },
+            params = argThat { this.toList() == expectedOrdered.toList() },
             accessKey = eq(config.accessKey),
             salt = any(),
             timestamp = any(),
@@ -259,7 +259,7 @@ class OrderServiceTest {
         assertEquals(stub, out)
 
         verify(client).listOrderReturns(
-            params = argThat { this != null && this.toList() == expectedOrdered.toList() },
+            params = argThat { this.toList() == expectedOrdered.toList() },
             accessKey = eq(config.accessKey),
             salt = any(),
             timestamp = any(),

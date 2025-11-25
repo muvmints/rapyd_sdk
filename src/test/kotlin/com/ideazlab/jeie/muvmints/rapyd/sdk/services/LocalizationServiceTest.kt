@@ -14,7 +14,7 @@ class LocalizationServiceTest {
     private val config: RapydConfig = TestUtils.testConfig()
     private val objectMapper: ObjectMapper = TestUtils.objectMapper()
     private val client: LocalizationClient = mock()
-    private val service = LocalizationService(config, objectMapper, client)
+    private val service = LocalizationService(config, client)
 
     @Test
     fun getFxRate_uppercasesCurrencies_ordersParams_andPassesHeaders() {

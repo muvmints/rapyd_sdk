@@ -1,23 +1,15 @@
 package com.ideazlab.jeie.muvmints.rapyd.sdk.services
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.embedded.RapydCreateWalletRequest
-import com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.CreateWalletResponse
-import com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.WalletAccountsResponse
-import com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.WalletActionResponse
-import com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.WalletListResponse
 import com.ideazlab.jeie.muvmints.rapyd.sdk.BaseService
 import com.ideazlab.jeie.muvmints.rapyd.sdk.RapydConfig
-import com.ideazlab.jeie.muvmints.rapyd.sdk.clients.WalletClient
-import com.ideazlab.jeie.muvmints.rapyd.sdk.api.requests.UpdateWalletRequest
 import com.ideazlab.jeie.muvmints.rapyd.sdk.api.requests.CreateContactRequest
-import com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.ComplianceLevelsResponse
-import com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.ContactListResponse
-import com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.ContactResponse
-import com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.DeleteContactResponse
+import com.ideazlab.jeie.muvmints.rapyd.sdk.api.requests.UpdateWalletRequest
+import com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.*
+import com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.embedded.RapydCreateWalletRequest
+import com.ideazlab.jeie.muvmints.rapyd.sdk.clients.WalletClient
 import io.micronaut.context.annotation.Requires
 import jakarta.inject.Singleton
-import org.slf4j.LoggerFactory
 
 @Singleton
 @Requires(bean = RapydConfig::class)
@@ -234,8 +226,5 @@ class WalletService(
             signature = signed.signature,
             idempotency = signed.idempotency
         )
-    }
-    companion object {
-        private val LOG = LoggerFactory.getLogger(this::class.java)
     }
 }

@@ -1,6 +1,5 @@
 package com.ideazlab.jeie.muvmints.rapyd.sdk.services
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import com.ideazlab.jeie.muvmints.rapyd.sdk.BaseService
 import com.ideazlab.jeie.muvmints.rapyd.sdk.RapydConfig
 import com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.WebhookListResponse
@@ -13,7 +12,6 @@ import jakarta.inject.Singleton
 @Requires(bean = RapydConfig::class)
 class WebhookService(
     private val config: RapydConfig,
-    private val objectMapper: ObjectMapper,
     private val client: WebhookClient
 ) : BaseService() {
 

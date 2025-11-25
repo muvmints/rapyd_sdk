@@ -395,7 +395,7 @@ class SubscriptionServiceTest {
         val subscriptionItemId = "si_789"
         val stub = SubscriptionItemDeleteResponse(
             RapydStatus(null, "OK", null, null, null),
-            com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.RapydDeletedItem(deleted = true, id = subscriptionItemId)
+            RapydDeletedItem(deleted = true, id = subscriptionItemId)
         )
         whenever(client.deleteSubscriptionItem(any(), any(), any(), any(), any(), any())).thenReturn(stub)
 
@@ -467,7 +467,7 @@ class SubscriptionServiceTest {
                 id = "ur_1",
                 quantity = body.quantity,
                 subscriptionItem = subscriptionItemId,
-                timestamp = body.timestamp.toLong()
+                timestamp = body.timestamp
             )
         )
         whenever(client.createSubscriptionItemUsageRecord(any(), any(), any(), any(), any(), any(), any())).thenReturn(
@@ -663,7 +663,7 @@ class SubscriptionServiceTest {
         val invoiceItemId = "ii_del_1"
         val stub = InvoiceItemDeleteResponse(
             RapydStatus(null, "OK", null, null, null),
-            com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.RapydDeletedItem(deleted = true, id = invoiceItemId)
+            RapydDeletedItem(deleted = true, id = invoiceItemId)
         )
         whenever(client.deleteInvoiceItem(any(), any(), any(), any(), any(), any())).thenReturn(stub)
 

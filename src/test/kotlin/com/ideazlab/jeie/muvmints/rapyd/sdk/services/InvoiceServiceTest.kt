@@ -45,7 +45,7 @@ class InvoiceServiceTest {
         assertEquals(stub, out)
 
         verify(client).listInvoices(
-            params = argThat { this != null && this.toList() == expectedOrdered.toList() },
+            params = argThat { this.toList() == expectedOrdered.toList() },
             accessKey = eq(config.accessKey),
             salt = any(),
             timestamp = any(),
@@ -504,7 +504,7 @@ class InvoiceServiceTest {
         assertEquals(stub, out)
 
         verify(client).getUpcomingInvoice(
-            params = argThat { this != null && this.toList() == expectedOrdered.toList() },
+            params = argThat { this.toList() == expectedOrdered.toList() },
             accessKey = eq(config.accessKey),
             salt = any(),
             timestamp = any(),
@@ -535,7 +535,7 @@ class InvoiceServiceTest {
         assertEquals(stub, out)
 
         verify(client).getUpcomingInvoiceLines(
-            params = argThat { this != null && this.toList() == expectedOrdered.toList() },
+            params = argThat { this.toList() == expectedOrdered.toList() },
             accessKey = eq(config.accessKey),
             salt = any(),
             timestamp = any(),

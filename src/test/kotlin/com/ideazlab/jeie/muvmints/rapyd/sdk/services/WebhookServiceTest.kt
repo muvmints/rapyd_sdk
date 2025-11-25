@@ -16,7 +16,7 @@ class WebhookServiceTest {
     private val config = TestUtils.testConfig()
     private val objectMapper = TestUtils.objectMapper()
     private val client: WebhookClient = mock()
-    private val service = WebhookService(config, objectMapper, client)
+    private val service = WebhookService(config, client)
 
     @Test
     fun listWebhooks_filtersAndSortsParams_andPassesSignedHeaders() {

@@ -1,6 +1,5 @@
 package com.ideazlab.jeie.muvmints.rapyd.sdk.services
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import com.ideazlab.jeie.muvmints.rapyd.sdk.BaseService
 import com.ideazlab.jeie.muvmints.rapyd.sdk.RapydConfig
 import com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.ListPayoutMethodTypesResponse
@@ -8,13 +7,11 @@ import com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.PayoutRequiredFieldsRe
 import com.ideazlab.jeie.muvmints.rapyd.sdk.clients.PayoutMethodTypeClient
 import io.micronaut.context.annotation.Requires
 import jakarta.inject.Singleton
-import org.slf4j.LoggerFactory
 
 @Singleton
 @Requires(bean = RapydConfig::class)
 class PayoutMethodTypeService(
     private val config: RapydConfig,
-    private val objectMapper: ObjectMapper,
     private val client: PayoutMethodTypeClient
 ): BaseService() {
 
@@ -66,9 +63,5 @@ class PayoutMethodTypeService(
             signature = signed.signature,
             idempotency = signed.idempotency
         )
-    }
-
-    companion object {
-        private val LOG = LoggerFactory.getLogger(this::class.java)
     }
 }

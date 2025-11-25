@@ -65,7 +65,7 @@ class CustomerPaymentMethodServiceTest {
 
         verify(client).listCustomerPaymentMethods(
             customerId = eq(customerId),
-            params = argThat { this != null && this.toList() == expectedOrdered.toList() },
+            params = argThat { this.toList() == expectedOrdered.toList() },
             accessKey = eq(config.accessKey),
             salt = any(),
             timestamp = any(),
