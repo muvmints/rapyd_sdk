@@ -28,6 +28,22 @@ data class RapydPaymentMethod(
 )
 
 @Serdeable
+data class RapydPayoutMethodType(
+    val type: String,
+    val name: String,
+    val category: String?,
+    val image: String?,
+    val country: String?,
+    val currency: String?,
+    @param:JsonProperty(value = "is_cancelable")
+    val isCancelable: Boolean? = null,
+    @param:JsonProperty(value = "is_expirable")
+    val isExpirable: Boolean? = null,
+    @param:JsonProperty(value = "is_location_specified")
+    val isLocationSpecified: Boolean? = null
+)
+
+@Serdeable
 data class RapydCustomerPaymentMethod(
     val id: String?,
     val type: String?,
