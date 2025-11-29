@@ -73,9 +73,8 @@ dependencies {
 
 
 java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
-    }
+    sourceCompatibility = JavaVersion.toVersion("24")
+    targetCompatibility = JavaVersion.toVersion("24")
     withSourcesJar()
 }
 

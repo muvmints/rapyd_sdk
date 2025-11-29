@@ -21,7 +21,7 @@ class LocalizationService(
         actionType: String,
         buyCurrency: String,
         sellCurrency: String,
-        amount: Number? = null,
+        amount: Double? = null,
         fixedSide: String? = null,
         date: String? = null
     ): GetFxRateResponse {
@@ -34,9 +34,8 @@ class LocalizationService(
             "sell_currency" to sellCurrency.uppercase()
         ).filterValues { !it.isNullOrBlank() }
 
-        val ordered = linkedMapOf<String, String>()
-        params.keys.sorted().forEach { k -> ordered[k] = params[k]!! }
-        val query = ordered.entries.joinToString("&") { (k, v) -> "$k=$v" }
+
+        val query = params.entries.joinToString("&") { (k, v) -> "$k=$v" }
         val pathWithQuery = "/v1/fx_rates?${query}"
         val signed = sign("get", pathWithQuery, null, config)
         return client.getFxRate(

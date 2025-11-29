@@ -1,6 +1,5 @@
 package com.ideazlab.jeie.muvmints.rapyd.sdk.services
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import com.ideazlab.jeie.muvmints.rapyd.sdk.RapydConfig
 import com.ideazlab.jeie.muvmints.rapyd.sdk.TestUtils
 import com.ideazlab.jeie.muvmints.rapyd.sdk.api.responses.*
@@ -12,7 +11,6 @@ import org.mockito.kotlin.*
 
 class LocalizationServiceTest {
     private val config: RapydConfig = TestUtils.testConfig()
-    private val objectMapper: ObjectMapper = TestUtils.objectMapper()
     private val client: LocalizationClient = mock()
     private val service = LocalizationService(config, client)
 
@@ -97,7 +95,7 @@ class LocalizationServiceTest {
     fun listCountries_passesSignedHeaders() {
         val stub = ListCountriesApiResponse(
             RapydStatus(null, "OK", null, null, null),
-            RapydListCountriesData(emptyList())
+            emptyList()
         )
         whenever(client.listCountries(any(), any(), any(), any(), any())).thenReturn(stub)
 

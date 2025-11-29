@@ -20,7 +20,7 @@ data class ListSupportedLanguagesApiResponse(
 @Response
 data class ListCountriesApiResponse(
     val status: RapydStatus,
-    val data: RapydListCountriesData
+    val data: List<RapydCountryInfo>
 )
 
 @Response
@@ -33,14 +33,20 @@ data class ListCurrenciesApiResponse(
 
 @Serdeable
 data class RapydDailyRate(
-    @param:JsonProperty("action_type") val actionType: String?,
-    @param:JsonProperty("buy_amount") val buyAmount: Double?,
-    @param:JsonProperty("buy_currency") val buyCurrency: String?,
+    @param:JsonProperty("action_type")
+    val actionType: String?,
+    @param:JsonProperty("buy_amount")
+    val buyAmount: Double?,
+    @param:JsonProperty("buy_currency")
+    val buyCurrency: String?,
     val date: String?,
-    @param:JsonProperty("fixed_side") val fixedSide: String?,
+    @param:JsonProperty("fixed_side")
+    val fixedSide: String?,
     val rate: Double?,
-    @param:JsonProperty("sell_amount") val sellAmount: Double?,
-    @param:JsonProperty("sell_currency") val sellCurrency: String?
+    @param:JsonProperty("sell_amount")
+    val sellAmount: Double?,
+    @param:JsonProperty("sell_currency")
+    val sellCurrency: String?
 )
 
 @Serdeable
@@ -56,8 +62,6 @@ data class RapydSupportedLanguage(
 
 @Serdeable
 data class RapydListCountriesData(
-    // The OpenAPI names this property 'languages' although it contains countries.
-    // We keep the original name to match the API.
     val languages: List<RapydCountryInfo>
 )
 
